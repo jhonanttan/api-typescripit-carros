@@ -1,6 +1,8 @@
 import { Router } from 'express';
 
-import { CategoriesRepository } from "../repositories/categoriesRepository";
+import { CategoriesRepository } from "../Modules/cars/repositories/categoriesRepository";
+import { PostgresCategoriesRepository } from '../Modules/cars/repositories/PostgresCategoriesRepository';
+import { CreateCategoryService } from '../Modules/cars/services/CreateCategoryService';
 
 const categoriesRoutes = Router();
 const categoriesRepository = new CategoriesRepository();
@@ -9,14 +11,9 @@ const categoriesRepository = new CategoriesRepository();
 categoriesRoutes.post("/", (request, response) => {
     const { name, description } = request.body;
 
-    const categoryAlredyExists = categoriesRepository.findByName(name);
+    const createCategoryService = new CreateCategoryService(categoriesRepository)
 
-    if(categoryAlredyExists) {
-        return response.status(400).json({error: "Categoria já existe"})
-    }
-
-    categoriesRepository.create({ name, description });
-
+    createCategoryService.execute({name, description});
     return response.status(201).send()
 })
 
