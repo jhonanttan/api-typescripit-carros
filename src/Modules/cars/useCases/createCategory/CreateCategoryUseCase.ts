@@ -1,5 +1,5 @@
-import { CategoriesRepository } from "../repositories/categoriesRepository";
-import { ICategoriesRepository, ICreateCategoryDTO } from "../repositories/ICategoriesRepository";
+import { CategoriesRepository } from "../../repositories/categoriesRepository";
+import { ICategoriesRepository, ICreateCategoryDTO } from "../../repositories/ICategoriesRepository";
 
 
 interface IRequest {
@@ -7,15 +7,9 @@ interface IRequest {
     description: string;
 }
 
-/**
- * [x] - Definir o tipo de retorno
- * [x] - Alterar o retorno de erro
- * [x] - Acessar o repositório
- * [x] - Retornar algo
- */
 
 
-class CreateCategoryService {
+class CreateCategoryUseCase {
 
     constructor(private categoriesRepository: ICategoriesRepository) {
 
@@ -35,4 +29,4 @@ class CreateCategoryService {
     }
 }
 
-export { CreateCategoryService }
+export { CreateCategoryUseCase }
