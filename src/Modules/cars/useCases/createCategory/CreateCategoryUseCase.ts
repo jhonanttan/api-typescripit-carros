@@ -1,4 +1,4 @@
-import { CategoriesRepository } from "../../repositories/categoriesRepository";
+import { CategoriesRepository } from "../../repositories/implementations/categoriesRepository";
 import { ICategoriesRepository, ICreateCategoryDTO } from "../../repositories/ICategoriesRepository";
 
 
