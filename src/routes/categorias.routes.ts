@@ -17,6 +17,7 @@ const categoriesRepository = new CategoriesRepository();
 
 
 categoriesRoutes.post("/", (request, response) => {
+    console.log("Reload Funcionando")
     return createCategoryController.handle(request, response);
 })
 
